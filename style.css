@@ -1,0 +1,34 @@
+:root {
+   --gray: #343A40;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+
+html{
+  height: 100%;
+  font-size: 16px;
+}
+
+header {
+  min-height: 100vh;
+  background-color: #051923;
+  background-image: url('background.svg');
+}
+
+main{
+  min-height: 50vh;
+}
+
+section#theGenerator{
+  min-height: 100vh;
+}
+
+.bg-gray {
+  background-color: var(--gray);
+  
+}

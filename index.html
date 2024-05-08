@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>GIF Generator</title>
+<!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!--   CUSTOM CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+<!--   FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/a48cb8a541.js" crossorigin="anonymous"></script>
+<!-- JQUERY -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+</head>
+
+<body>
+
+<!--Header-->
+<header class="d-flex justify-content-center align-items-center" id="header-gif">
+<div class="container text-center text-light p-5">
+  <h1 class="display-3 fw-bold">GIF Generator</h1>
+  <p class="lead">Search for GIFs that capture exactly how you feel.</p>
+  <p class="fs-6 text-muted mb-5">Powered by the <a class="link-secondary" href="https://developers.giphy.com/" target="_blank" rel="noopenner noreferrer">GIPHY API</a></p>
+  <a class="btn btn-secondary btn-lg fw-bold" href="#theGenerator">Start Now</a>
+</div>
+</header>
+<main class="container-fluid bg-gray text-light p-5">
+
+  
+
+
+<section id="theGenerator" class="py-5">
+  <div class="container text-center">
+
+    <h2 class="mt-5 display-5 fw-bold">GIF Generator</h2>
+      <p class="lead mb-3">Enter a keyword and hit the search button to generate 10 GIFS related to your search term.</p> 
+
+      
+      
+   
+    <div class="input-group input-group-lg mb-3 flex-nowrap text-center">
+  <input type="text" class="searchQ form-control" placeholder="Enter keyword here...">
+  <button class="btn btn-secondary searchButton" type="button" id="button-addon2" onclick="fetchGifs()">Search</button>
+        </div>
+    <div class="text-center">
+
+    <h2 id="advice"></h2>
+    <div id ="gifResults">
+      
+      
+    </div>
+    
+  </div>
+  </div>
+</section>
+
+</main>
+
+  
+<!-- Footer -->
+<footer class="p-3 bg-dark text-light"> 
+  <div class="container text-center">
+    <p class="text-muted fs-6 pt-3">Built with 💪🏾 by <a href="https://aprilharris.co" target="_blank" rel="noopenner noreferrer" class="link-light">aprilharris.co</a>.</p>
+
+  </div>
+    </footer>
+
+    <!-- CUSTOM JS -->
+  <script type="text/javascript" src="script.js"></script>
+<!-- BOOTSTRAP JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
