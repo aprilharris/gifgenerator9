@@ -42,7 +42,7 @@
       
    
     <div class="input-group input-group-lg mb-3 flex-nowrap text-center">
-  <input type="text" class="searchQ form-control" placeholder="Enter keyword here...">
+  <input type="text" class="searchForm form-control" placeholder="Enter keyword here...">
   <button class="btn btn-secondary searchButton" type="button" id="button-addon2" onclick="fetchGifs()">Search</button>
         </div>
     <div class="text-center">
@@ -58,6 +58,67 @@
 </section>
 
 </main>
+  <script>
+
+    
+//KEYBOARD SHORTCUT THAT FIRES OFF FUNCTION WHEN USER TAPS "RETURN" or "ENTER" KEY
+    document.addEventListener('keydown', ({key}) => key === 'Enter' && fetchGifs());
+
+    
+      function fetchGifs() {
+
+      $("#gifResults").text("");
+      let searchInput = $(".searchForm").val();
+      let request = new XMLHttpRequest();
+      let url = "https://api.giphy.com/v1/gifs/search?q="+searchInput+"&api_key=7gwFD7V7ijHhYad76xl9E5k6YtbwO7T6";
+
+      request.open("GET", url, true);
+
+      request.onload = function() {
+
+        let res = JSON.parse(this.response); 
+
+        if (request.status >= 200 && request.status < 400) {
+
+
+          for (let gif = 0; gif < 10; gif++) {
+
+            $("#gifResults").append(`<img class="p-3 img-fluid" src=  ${res.data[gif].images.downsized_large.url} >`);
+
+          }  
+
+        }
+
+
+      }
+
+      //OPTIONAL
+
+      let newRequest = new XMLHttpRequest();
+      let newUrl = "https://api.adviceslip.com/advice/search/"+searchInput;
+      newRequest.open("GET", newUrl, true);
+      newRequest.onload = function generateAdvice() {
+
+        let newRes = JSON.parse(this.response);
+        if (newRequest.status >= 200 && newRequest.status < 400) {
+          let resAdv = newRes.slips[0].advice;
+          console.log(resAdv);
+          $("#advice").text(resAdv);
+        }
+
+
+      };
+
+
+
+      request.send();
+      newRequest.send();
+    }
+
+
+
+
+  </script>
 
   
 <!-- Footer -->
@@ -68,8 +129,7 @@
   </div>
     </footer>
 
-    <!-- CUSTOM JS -->
-  <script type="text/javascript" src="script.js"></script>
+    
 <!-- BOOTSTRAP JS -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
